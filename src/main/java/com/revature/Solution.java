@@ -1,5 +1,9 @@
 package com.revature;
 
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.stream.IntStream;
+
 public class Solution {
 
 	/**
@@ -10,8 +14,16 @@ public class Solution {
 	
 	public static int[] solution(int[] data, int n) {
 		
+		if (n<1) {
+			return new int[0];
+		}
 		
-		return null;
+		if (data.length < 1) {
+			return data;
+		}
+		
+		return Arrays.stream(data).filter(d->Arrays.stream(data).filter(x->x==d).count()<=n).toArray();
+		
 	}
 
 }
